@@ -1,0 +1,15 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: config
+
+  profiles:
+    active:
+      - native #diğer servislerin/uygulamaların config ayarlarını config dizininiden import edilmesini sağlar.
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8097/eureka  # !!! eureka nin adresini yaziyoruz
