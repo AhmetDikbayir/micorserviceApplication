@@ -1,5 +1,6 @@
 package com.tpe.service;
 
+import com.tpe.domain.Car;
 import com.tpe.dto.CarRequest;
 import com.tpe.repository.CarRepository;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +18,10 @@ public class CarService {
 
     public void createCar(CarRequest carRequest) {
 
+        Car car = modelMapper.map(carRequest, Car.class);
 
-        carRepository.save(modelMapper(carRequest));
+        carRepository.save(car);
+
+        //LOG ISLEMLERI
     }
 }

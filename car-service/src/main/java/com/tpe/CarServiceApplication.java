@@ -2,6 +2,8 @@ package com.tpe;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.config.Configuration;
+import org.modelmapper.convention.NamingConventions;
+import org.modelmapper.spi.NamingConvention;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
@@ -21,6 +23,9 @@ public class CarServiceApplication {
 		modelMapper.getConfiguration()
 				.setFieldMatchingEnabled(true)
 				.setFieldAccessLevel(Configuration.AccessLevel.PRIVATE)
+				.setSourceNamingConvention(NamingConventions.JAVABEANS_MUTATOR);
+
+		return modelMapper;
 	}
 
 
