@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableEurekaClient
@@ -26,6 +27,13 @@ public class CarServiceApplication {
 				.setSourceNamingConvention(NamingConventions.JAVABEANS_MUTATOR);
 
 		return modelMapper;
+	}
+
+	@Bean
+	public RestTemplate restTemplate(){
+		//client request olusturup göndermemizi sağlar.
+		//REST API ler arasında iletişimi sağlıyor
+		return new RestTemplate();
 	}
 
 
